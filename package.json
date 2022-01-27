@@ -1,14 +1,14 @@
 {
-  "name": "@elias.schaut/discord-bot-template",
-  "version": "1.0.0-beta.6",
-  "description": "A template for creating discord bots with node.js and discord.js! (See also https://github.com/EliasSchaut/Discord-Bot-Template)",
+  "name": "ns2_bot",
+  "version": "1.0.0-beta.0",
+  "description": "The Discord bot of the Server [KIT] Natural Selection.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "pm": "pm2 start src/index.js --name my-bot",
-    "pm-restart": "pm2 reload my-bot",
-    "pm-stop": "pm2 delete my-bot"
+    "pm": "pm2 start src/index.js --name ns2_bot",
+    "pm-restart": "pm2 reload ns2_bot",
+    "pm-stop": "pm2 delete ns2_bot"
   },
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
@@ -25,7 +25,7 @@
     "winston": "^3.4.0"
   },
   "keywords": [
-    "discord-bot-template"
+    "ns2_bot"
   ],
   "author": "Elias Schaut",
   "license": "MIT"
