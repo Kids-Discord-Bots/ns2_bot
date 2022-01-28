@@ -8,16 +8,16 @@
 const _TABLE = (sequelize, Sequelize) => {
     return sequelize.define('Voice', {
         "index": {
-            type: Sequelize.INT
+            type: Sequelize.INTEGER
         },
-        "channel_id": Sequelize.STRING,
-        unique: true,
+        "channel_id": {
+            type: Sequelize.STRING,
+            unique: true,
+        },
     }, {
         timestamp: false
     })
 }
-
-const { client } = require("../../index")
 // ---------------------------------------------
 
 
@@ -25,7 +25,7 @@ const { client } = require("../../index")
 // Helper
 // ---------------------------------------------
 // add stuff to database
-async function add(index, channel_id) {
+async function add(client, index, channel_id) {
     try {
         await client.DB["Voice"].TABLE.create({
             "index": index,
@@ -43,7 +43,7 @@ async function add(index, channel_id) {
 }
 
 // get stuff from database
-async function get(index, channel_id) {
+async function get(client, index, channel_id) {
     const tags = await client.DB["Voice"].TABLE.findAll({ where: { index: index } })
 
     if (tags.length) {
@@ -56,7 +56,7 @@ async function get(index, channel_id) {
 }
 
 // remove tag in database
-async function remove(index) {
+async function remove(client, index) {
     const rowCount = await client.DB["Voice"].TABLE.destroy({ where: { index: index } })
 
     if (rowCount) {
